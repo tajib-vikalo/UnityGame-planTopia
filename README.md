@@ -8,7 +8,7 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 -	Randomizirano kretanje neprijatelja u smijeru glavnog lika
 -	Sposobnost neprijatelja da randomizirano puca u smijeru glavnog lika
 -	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit
--	Dizajn levela 1. i 2. (In progress)
+-	Dizajn levela 1. i 2. (1/2 done)
 -	Otpornost neprijatelja na oružje glavnog lika(health) I implementacija animacija omamljivanja I nestajanja u trenucima umiranja
 -	Kretanje glavnog lika uz implementaciju animacija za kretanja(klizanje, trčanje, hodanje..)
 -	Sposobnost pucanja iz oružja 
@@ -19,3 +19,6 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 
 #Additional:
 -Sound effects
+-Wave effect
+-Attached objects and moving platforms
+
