@@ -4,7 +4,7 @@
 Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljavaj neprijatelje i biraj prave putanje kako bi vratio ukradeni talisman/izvor života. P.S. Pazi na zdravlje i municiju jer vremenom oboje opadaju.
 
 #Tasks:
--	Randomizirano pojavljivanje neprijatelja u određenom vremenskom postotku
+-	Randomizirano pojavljivanje neprijatelja u određenom vremenskom postotku. :::::DONE:::::
 -	Randomizirano kretanje neprijatelja u smijeru glavnog lika
 -	Sposobnost neprijatelja da randomizirano puca u smijeru glavnog lika
 -	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit
