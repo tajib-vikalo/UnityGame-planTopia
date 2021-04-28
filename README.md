@@ -10,7 +10,8 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 -	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit
 -	Dizajn levela 1. i 2. (1/2 done)
 -	Otpornost neprijatelja na oružje glavnog lika(health) I implementacija animacija omamljivanja I nestajanja u trenucima umiranja
--	Kretanje glavnog lika uz implementaciju animacija za kretanja(klizanje, trčanje, hodanje..)
+
+-	Kretanje glavnog lika uz implementaciju animacija za kretanja(trčanje, hodanje..) :::::DONE:::::
 -	Sposobnost pucanja iz oružja 
 -	Sposobnost punjenja različitih vrsta oružja uz primjenu odgovarajućih animacija
 -	Regulisanje zdravlja glavnog igrača koje podrazumjeva uticaj raznih faktora koji utiču na zdravlje, poput, neprijatelja, vremena…
