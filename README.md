@@ -12,7 +12,7 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 -	Otpornost neprijatelja na oružje glavnog lika(health) I implementacija animacija omamljivanja I nestajanja u trenucima umiranja
 
 -	Kretanje glavnog lika uz implementaciju animacija za kretanja(trčanje, hodanje..) :::::DONE:::::
--	Sposobnost pucanja iz oružja 
+-	Sposobnost pucanja iz oružja :::::DONE:::::
 -	Sposobnost punjenja različitih vrsta oružja uz primjenu odgovarajućih animacija
 -	Regulisanje zdravlja glavnog igrača koje podrazumjeva uticaj raznih faktora koji utiču na zdravlje, poput, neprijatelja, vremena…
 -	PowerUps za oružja, te uticaj na vrstu kretanja  koje glavni igrač ima

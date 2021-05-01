@@ -25,6 +25,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ddbe0a47243274abd243062419a65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3715758397736275473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377621591013404618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bcddc3fc92dfb4593a111c9ce6e4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingHealt: 10
 --- !u!1001 &1376074598352176370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,6 +52,10 @@ PrefabInstance:
     - target: {fileID: 1837317425425208, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837317425425208, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4882590064214274, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
       propertyPath: m_RootOrder
