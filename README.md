@@ -5,7 +5,7 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 
 #Tasks:
 -	Randomizirano pojavljivanje neprijatelja u određenom vremenskom postotku. :::::DONE:::::
--	Randomizirano kretanje neprijatelja u smijeru glavnog lika
+-	Randomizirano kretanje neprijatelja u smijeru glavnog lika :::::DONE:::::
 -	Sposobnost neprijatelja da randomizirano puca u smijeru glavnog lika
 -	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit
 -	Dizajn levela 1. i 2. (1/2 done)

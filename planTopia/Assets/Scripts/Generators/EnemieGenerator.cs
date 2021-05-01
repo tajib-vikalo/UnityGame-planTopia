@@ -1,3 +1,4 @@
+using planTopia.Enemies;
 using planTopia.Generators.Core;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,41 +13,27 @@ namespace planTopia.Generators
         [SerializeField]
         private ParticleSystem particle;
         [SerializeField]
-        private GameObject EnemiesPlane;
+        private Transform Player;
         [SerializeField]
-        private float percentageOfUsage;
-
-
-
-
-
-        private Vector3 origin;
-        private Vector3 range;
-        private int counter = 0;
-        private bool started = false;
-        private int NumberOfEntries = 0;
-        private float precisionX;
-        private float precisionZ;
-
-
-
-        private float NextEnemy { get; set; } = 0;
+        private PositionGenerator PositionGenerator;
         [SerializeField]
         private Generator EnemiesPool;
+
+
+        private int counter { get; set; } = 0;
+        private bool started { get; set; } = false;
+        private float NextEnemy { get; set; } = 0;
 
         //calculating a scale of EnemiesPlane
         private void Start()
         {
             particle.Stop();
-            
-            origin = EnemiesPlane.transform.position;
-            range = EnemiesPlane.transform.localScale / 2.0f;
             counter = EnemiesPool.Size;
-            precisionX = CalculatePrecision(range.x);
-            precisionZ = CalculatePrecision(range.y);
+
+
         }
         //generate enemies in wanted amount
-        private void Update()
+        private void FixedUpdate()
         {
             if (started && counter > 0)
             {
@@ -54,10 +41,16 @@ namespace planTopia.Generators
                 {
 
                     NextEnemy = Time.time + GenerationSpeed;
-                    if (EnemiesPool.Next(
-                        Random.Range(-range.x + precisionX,range.x-precisionX) ,   0f,
-                        Random.Range(-range.z + precisionZ, range.z - precisionZ),  origin))
+                    GameObject enemy = EnemiesPool.Next(
+                        Random.Range(-PositionGenerator.range.x, PositionGenerator.range.x), PositionGenerator.range.y,
+                        Random.Range(-PositionGenerator.range.z, PositionGenerator.range.z),
+                            PositionGenerator.origin);
+                    if (enemy != default(GameObject))
                     {
+                        enemy.GetComponent<EnemieController>().Player = Player;
+
+                        enemy.SetActive(enabled);
+
                         counter--;
                         particle.Play();
                     }
@@ -67,21 +60,12 @@ namespace planTopia.Generators
         }
 
         //Cheching if a player is finally entering enemies plane
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collider)
         {
-            if (collision.gameObject.name == "Player")
+            if (collider.gameObject.CompareTag(Constants.Tag.PLAYER))
             {
-                if (NumberOfEntries > 0)
-                    return;
-                
                 started = true;
-                NumberOfEntries++;
             }
-        }
-        //calculate percentage out of boundaries 
-        private float CalculatePrecision(float coordinate)
-        {
-            return coordinate * percentageOfUsage;
         }
 
     }
