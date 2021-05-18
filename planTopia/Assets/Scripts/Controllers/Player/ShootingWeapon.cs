@@ -1,9 +1,10 @@
 using planTopia.Controllers.Core;
-using System.Collections;
-using System.Collections.Generic;
+using planTopia.Core;
+using planTopia.Enemies;
+using planTopia.ScriptabileObjects;
 using UnityEngine;
 
-namespace planTopia
+namespace planTopia.Controllers.Player
 {
     public class ShootingWeapon : MonoBehaviour
     {
@@ -13,37 +14,60 @@ namespace planTopia
         private Transform RaycastOrigin;
         [SerializeField]
         private Transform RaycastDestination;
+        [SerializeField]
+        private ShootingAttributes shootingAttributes;
 
-        [SerializeField]
-        [Range(1f, 10f)]
-        private float Damage = 2;
-        [SerializeField]
-        [Range(0.1f, 1.5f)]
-        private float FireRate = 0.6f;
+
+
+
+
         private float NextRate;
-
         private Ray ray;
         private RaycastHit hitInfo;
+        private GameObject Object;
+
 
         private void Start()
         {
             InputManagment.OnShooting += OnStartFiring;
+
+
+
         }
         private void OnStartFiring()
         {
-            if (Time.time>NextRate)
+
+
+            if (Time.time > NextRate)
             {
-                NextRate = Time.time+ FireRate;
+                NextRate = Time.time + shootingAttributes.FireRate;
                 ray.origin = RaycastOrigin.position;
                 ray.direction = RaycastDestination.position - RaycastOrigin.position;
 
                 if (Physics.Raycast(ray, out hitInfo))
                 {
                     if (hitInfo.collider.gameObject.tag == "Enemy")
-                        hitInfo.collider.gameObject.GetComponent<EnemyHealth>()?.OnShoot(Damage);
-                        Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 4f);
+                    {
+
+                        Object = hitInfo.collider.gameObject;
+                        var BaseGenericsEnemy = Object.GetComponent<BaseGenerics>();
+                        if (Vector3.Distance(Object.transform.position, this.transform.position) < shootingAttributes.ShootingDistance)
+                        {
+                            if (!Object.GetComponent<Animator>().GetBool("Dizzy"))
+                            {
+                                hitInfo.collider.gameObject.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(shootingAttributes.Damage);
+
+                                BaseGenericsEnemy.startMove = false;
+
+                                Object.GetComponent<DizzyActivator>().StartDizzy();
+                            }
+                        }
+                    }
+                    Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 4f);
                 }
             }
+
         }
+
     }
 }

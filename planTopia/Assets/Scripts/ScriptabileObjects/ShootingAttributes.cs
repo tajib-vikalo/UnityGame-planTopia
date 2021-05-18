@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace planTopia.ScriptabileObjects
+{
+    [CreateAssetMenu(menuName = "planTopia/Shooting Attributes", fileName = "Shooting Attributes", order = 0)]
+    public class ShootingAttributes : ScriptableObject
+    {
+        [Range(1f, 10f)]
+        public float Damage = 2;
+        [Range(0f, 10f)]
+        public float ShootingDistance = 0.75f;
+        [Range(0.1f, 1.5f)]
+        public float FireRate = 0.6f;
+    }
+}

@@ -6,10 +6,10 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 #Tasks:
 -	Randomizirano pojavljivanje neprijatelja u određenom vremenskom postotku. :::::DONE:::::
 -	Randomizirano kretanje neprijatelja u smijeru glavnog lika :::::DONE:::::
--	Sposobnost neprijatelja da randomizirano puca u smijeru glavnog lika
--	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit
+-	Sposobnost neprijatelja da randomizirano puca u smijeru glavnog lika :::::DONE:::::
+-	Boss making, prilikom završetka svakog levela dolazi različit boss kojeg je teže porazit :::::DONE:::::
 -	Dizajn levela 1. i 2. (1/2 done)
--	Otpornost neprijatelja na oružje glavnog lika(health) I implementacija animacija omamljivanja I nestajanja u trenucima umiranja
+-	Otpornost neprijatelja na oružje glavnog lika(health) I implementacija animacija omamljivanja I nestajanja u trenucima umiranja :::::DONE:::::
 
 -	Kretanje glavnog lika uz implementaciju animacija za kretanja(trčanje, hodanje..) :::::DONE:::::
 -	Sposobnost pucanja iz oružja :::::DONE:::::

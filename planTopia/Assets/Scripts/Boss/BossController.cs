@@ -1,0 +1,48 @@
+
+using UnityEngine;
+using UnityEngine.AI;
+
+namespace planTopia.Boss
+{
+    public class BossController : Attack
+    {
+        [SerializeField]
+        private GameObject Target;
+        [Range(0, 20)]
+        private float MovingDistance = 0.45f;
+        private Animator Animator { get; set; }
+        private NavMeshAgent Agent { get; set; }
+     
+       
+
+        private void Start()
+        {
+            Agent = this.GetComponent<NavMeshAgent>();
+            Animator = this.GetComponent<Animator>();
+
+        }
+        private void Update()
+        {
+
+
+            if (!startMove)
+            {
+                Agent.isStopped = true; return; 
+            }
+
+          
+            if (Mathf.Abs(Vector3.Distance(this.transform.position, Target.transform.position)) < MovingDistance)
+            {
+                Agent.isStopped = true;
+                ActivateAttack(Animator);
+
+            }
+            else
+            {
+                Agent.isStopped = false;
+                DeactivateAttack(Animator);
+                Agent.SetDestination(Target.transform.position);
+            }
+        }
+    }
+}

@@ -1,21 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using planTopia.Core;
 using UnityEngine;
 
 namespace planTopia.Enemies
 {
-    public class Enabled : MonoBehaviour
+    public class Enabled : BaseGenerics
     {
-
-        private bool startMove { get; set; } = false;
-        private EnemieController EnemieController { get; set; }
         [SerializeField]
         private Animator Animator;
 
+        public Damage Damage;
+        private EnemyController EnemieController { get; set; }
+        private EnemyShooting enemyShooting { get; set; }
+        
+
+
+
         private void Start()
         {
-            EnemieController = this.GetComponent<EnemieController>();
+            EnemieController = this.GetComponent<EnemyController>();
             Animator = this.GetComponent<Animator>();
+            enemyShooting = this.GetComponent<EnemyShooting>();
+            Damage.StartingDamage = Damage.AmountOfDamage;
 
         }
 
@@ -25,24 +30,31 @@ namespace planTopia.Enemies
             {
 
                 EnemieController.MoveAndRotate();
-
+                if (enemyShooting != null)
+                {
+                    enemyShooting.Player = EnemieController.Player;
+                    enemyShooting.OnStartFiring();
+                }
 
             }
 
+
+
         }
+    
         private void OnEnable()
         {
             Animator.SetBool("Run", true);
             startMove = true;
-            Invoke("Disable", 4);
+
         }
-        private void Disable()
+        private void OnDisable()
         {
 
             if (this.gameObject.activeInHierarchy)
             {
                 startMove = false;
-                this.gameObject.SetActive(false);
+
                 Animator.SetBool("Run", false);
 
 

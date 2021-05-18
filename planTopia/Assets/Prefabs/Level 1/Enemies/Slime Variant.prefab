@@ -29,19 +29,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.52, z: 0}
---- !u!114 &-2899665479443134575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975634919679888125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bcddc3fc92dfb4593a111c9ce6e4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealt: 2
 --- !u!114 &-2134248455085547900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bcddc3fc92dfb4593a111c9ce6e4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealt: 10
+  StartingHealt: 3
 --- !u!114 &87170753169997151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,19 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 1889871420703496467}
---- !u!114 &1248294486274348330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975634919679888125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bcddc3fc92dfb4593a111c9ce6e4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealt: 2
+  NextShoot: 0
 --- !u!114 &6560546764436122030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13055aa735600e04d85480e365a70877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 0.5
 --- !u!1001 &1975113147876215213
 PrefabInstance:
   m_ObjectHideFlags: 0
