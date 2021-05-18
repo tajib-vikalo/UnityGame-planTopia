@@ -62,7 +62,10 @@ namespace planTopia
         private void Jump()
         {
             if (Physics.OverlapSphere(GroundCheckTransfrom.position, 0.01f).Length > 1)
+            {
                 this.Rigidbody.AddForce(Vector3.up * JumpHeight, ForceMode.VelocityChange);
+                PlayerAnimator.SetTriggerJump();
+            }
         }
     }
 }

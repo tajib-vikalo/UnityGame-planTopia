@@ -7,6 +7,7 @@ namespace planTopia.Controllers.Player
     public class PlayerAnimationController : MonoBehaviour
     {
         private static readonly int Running = Animator.StringToHash("Running");
+        private static readonly int Jump = Animator.StringToHash("Jump");
         private Animator PlayerAnimator { get; set; }
 
         private void Start()
@@ -16,5 +17,6 @@ namespace planTopia.Controllers.Player
 
         public void SetRunningTrue() => PlayerAnimator.SetBool(Running, true);
         public void SetRunningFalse() => PlayerAnimator.SetBool(Running,false);
+        public void SetTriggerJump() => PlayerAnimator.SetTrigger(Jump);
     }
 }

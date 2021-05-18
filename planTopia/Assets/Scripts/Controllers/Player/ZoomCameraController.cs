@@ -16,6 +16,7 @@ namespace planTopia
         {
             Camera = GetComponent<CinemachineFreeLook>();
             InputManagment.ZoomCamera += ZoomInOut;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void ZoomInOut(bool zoomed)

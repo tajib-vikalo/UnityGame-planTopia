@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16876d48ce53485458c68e9dad8d7baa, type: 3}
   m_Name: Player Shooting Attributes
   m_EditorClassIdentifier: 
-  Damage: 2
-  ShootingDistance: 0.75
-  FireRate: 0.6
+  Damage: 10
+  ShootingDistance: 10
+  FireRate: 0.1
