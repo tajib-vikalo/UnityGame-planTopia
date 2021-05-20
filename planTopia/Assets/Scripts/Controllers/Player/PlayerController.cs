@@ -1,10 +1,11 @@
 using planTopia.Controllers.Core;
 using planTopia.Controllers.Player;
+using planTopia.Core;
 using UnityEngine;
 
 namespace planTopia
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : BaseGenerics
     {
         [SerializeField] private InputManagment InputManagment;
         [SerializeField] private Transform Camera;
@@ -42,22 +43,25 @@ namespace planTopia
         }
         private void OnInputChanged(float horizontal, float vertical)
         {
-            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-            if (direction.magnitude > 0)
+            if (startMove)
             {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelicoty, turnSmoothTime);
+                Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                if (direction.magnitude > 0)
+                {
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.eulerAngles.y;
+                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelicoty, turnSmoothTime);
 
-                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                Rigidbody.MovePosition(transform.position + moveDir.normalized * Speed * Time.deltaTime);
+                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                PlayerAnimator.SetRunningTrue();
+                    Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    Rigidbody.MovePosition(transform.position + moveDir.normalized * Speed * Time.deltaTime);
+
+                    PlayerAnimator.SetRunningTrue();
+                }
+                else
+                    PlayerAnimator.SetRunningFalse();
             }
-            else
-                PlayerAnimator.SetRunningFalse();
         }
         private void Jump()
         {

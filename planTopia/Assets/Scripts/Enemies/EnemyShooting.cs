@@ -1,3 +1,4 @@
+using planTopia.Controllers.Player;
 using planTopia.ScriptabileObjects;
 using System.Collections;
 using System.Collections.Generic;
@@ -51,9 +52,8 @@ namespace planTopia.Enemies
                     if (Physics.Raycast(ray, out hitInfo))
                     {
                         if (hitInfo.collider.gameObject.tag == "Player")
-                            hitInfo.collider.gameObject.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(shootingAttributes.Damage);
+                            hitInfo.collider.gameObject.GetComponent<PlayerHealth>()?.DecreaseHealth(shootingAttributes.Damage);
                         Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 4f);
-
                     }
                 }
             }

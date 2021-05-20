@@ -13,5 +13,6 @@ namespace planTopia.ScriptabileObjects
         public float ShootingDistance = 0.75f;
         [Range(0.1f, 1.5f)]
         public float FireRate = 0.6f;
+        public Material Weapon;
     }
 }

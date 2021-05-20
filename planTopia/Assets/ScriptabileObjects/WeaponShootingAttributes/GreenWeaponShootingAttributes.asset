@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16876d48ce53485458c68e9dad8d7baa, type: 3}
-  m_Name: Player Shooting Attributes
+  m_Name: GreenWeaponShootingAttributes
   m_EditorClassIdentifier: 
-  Damage: 10
-  ShootingDistance: 10
-  FireRate: 0.1
+  Damage: 4
+  ShootingDistance: 4
+  FireRate: 0.4
+  Weapon: {fileID: 2100000, guid: 1022c7edf1db176479a6e1d4958163ec, type: 2}

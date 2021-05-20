@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Boss
   - Sword
+  - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
