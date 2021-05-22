@@ -22,9 +22,9 @@ namespace planTopia
         private void ZoomInOut(bool zoomed)
         {
             if (zoomed)
-                Camera.m_Lens.FieldOfView = 20;
+                Camera.m_Lens.FieldOfView = 25;
             else
-                Camera.m_Lens.FieldOfView = 40;
+                Camera.m_Lens.FieldOfView = 35;
         }
     }
 }

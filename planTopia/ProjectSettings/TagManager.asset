@@ -9,6 +9,11 @@ TagManager:
   - Sword
   - Wall
   - Water
+  - BlackGun
+  - YellowGun
+  - RedGun
+  - GreenGun
+  - BlueGun
   layers:
   - Default
   - TransparentFX

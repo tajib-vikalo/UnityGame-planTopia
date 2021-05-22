@@ -8,13 +8,27 @@ namespace planTopia
     {
         public static class Tag
         {
-            public static string PLAYER = "Player";
-            public static string NormalWeapon = "NormalWeaponShootingAttributes";
-            public static string RedWeapon = "RedWeaponShootingAttributes";
-            public static string YellowWeapon = "YellowWeaponShootingAttributes";
-            public static string BlueWeapon = "BlueWeaponShootingAttributes";
-            public static string GreenWeapon = "GreenWeaponShootingAttributes";
-            public static string Water = "Water";
+            public const string PLAYER = "Player";
+            public const string Water = "Water";
+            public const string Enemy = "Enemy";
+            //:::::const:::::::Weapons:::::::::::://
+            public const string BlackWeapon = "BlackShootingAttributes";
+            public const string RedWeapon = "RedWeaponShootingAttributes";
+            public const string YellowWeapon = "YellowWeaponShootingAttributes";
+            public const string BlueWeapon = "BlueWeaponShootingAttributes";
+            public const string GreenWeapon = "GreenWeaponShootingAttributes";
+            //::::::::::::WeaponsGameObjects:::::::::::://
+            public const string BlueGun = "BlueGun";
+            public const string RedGun = "RedGun";
+            public const string YellowGun = "YellowGun";
+            public const string GreenGun = "GreenGun";
+            public const string BlackGun = "BlackGun";
+            //::::::::::::AnimationsTags:::::::::::://
+            public const string IDLE = "IDLE";
+            public const string Running = "Running";
+            public const string Jump = "Jump";
+            public const string Death = "Dying";
+
         }
     }
 }

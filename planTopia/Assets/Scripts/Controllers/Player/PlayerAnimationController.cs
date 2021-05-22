@@ -6,10 +6,10 @@ namespace planTopia.Controllers.Player
 {
     public class PlayerAnimationController : MonoBehaviour
     {
-        private static readonly int IDLE = Animator.StringToHash("IDLE");
-        private static readonly int Running = Animator.StringToHash("Running");
-        private static readonly int Jump = Animator.StringToHash("Jump");
-        private static readonly int Death = Animator.StringToHash("Dying");
+        private static readonly int IDLE = Animator.StringToHash(Constants.Tag.IDLE);
+        private static readonly int Running = Animator.StringToHash(Constants.Tag.Running);
+        private static readonly int Jump = Animator.StringToHash(Constants.Tag.Jump);
+        private static readonly int Death = Animator.StringToHash(Constants.Tag.Death);
         private Animator PlayerAnimator { get; set; }
 
         private void Start()

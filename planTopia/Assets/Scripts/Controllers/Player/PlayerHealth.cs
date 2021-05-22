@@ -22,15 +22,12 @@ namespace planTopia.Controllers.Player
         private Slider HealthSlider;
         [SerializeField]
         private Text HealthText;
-
-        private PlayerAnimationController Animator { get; set; }
-        private PlayerController Controller { get; set; }
-
-        private float NextDecreaseHealth;
-
         [SerializeField]
         private Vector3 StartPosition = new Vector3(-6.5f, 0, -39);
 
+        private PlayerAnimationController Animator { get; set; }
+        private PlayerController Controller { get; set; }
+        private float NextDecreaseHealth;
         private bool isDeath=false;
 
 

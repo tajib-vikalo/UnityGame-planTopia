@@ -2,6 +2,7 @@ using planTopia.ScriptabileObjects;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace planTopia.Controllers.Player
 {
@@ -9,17 +10,59 @@ namespace planTopia.Controllers.Player
     {
         [SerializeField]
         private List<ShootingAttributes> Weapons;
+        [SerializeField]
+        private Image UIGunImage;
+        [SerializeField]
+        private Text UIAmmunation;
         private SkinnedMeshRenderer Renderer { get; set; }
+        private AudioSource Audio { get; set; }
+
 
         private void Start()
         {
-            Renderer = this.GetComponent<SkinnedMeshRenderer>();
+            Renderer = this.GetComponentInChildren<SkinnedMeshRenderer>();
+            Audio = this.GetComponent<AudioSource>();
+            SetBlackWeapon();
         }
-        private void SetRedWeapon() => Renderer.material = Weapons.Where(x => x.name == Constants.Tag.RedWeapon).FirstOrDefault().Weapon;
-        private void SetYellowWeapon() => Renderer.material = Weapons.Where(x => x.name == Constants.Tag.YellowWeapon).FirstOrDefault().Weapon;
-        private void SetBlueWeapon() => Renderer.material = Weapons.Where(x => x.name == Constants.Tag.BlueWeapon).FirstOrDefault().Weapon;
-        private void SetGreenWeapon() => Renderer.material = Weapons.Where(x => x.name == Constants.Tag.GreenWeapon).FirstOrDefault().Weapon;
-        private void SetNormalWeapon() => Renderer.material = Weapons.Where(x => x.name == Constants.Tag.NormalWeapon).FirstOrDefault().Weapon;
-    
+        private void SetWeaponAndSound(ShootingAttributes Gun)
+        {
+            Renderer.material = Gun.Weapon;
+            Audio.clip = Gun.Sound;
+            UIGunImage.sprite = Gun.UIImage;
+            Gun.CurrentAmmunation = Gun.MaxAmmunation;
+            UIAmmunation.text= $"{Gun.CurrentAmmunation}/{Gun.MaxAmmunation}";
+            this.GetComponent<ShootingWeapon>().SetShootingAttributes(Gun);
+        }
+        public void SetRedWeapon()
+        {
+            var Gun = Weapons.Where(x => x.name == Constants.Tag.RedWeapon).FirstOrDefault();
+            if (Gun != null)
+                SetWeaponAndSound(Gun);
+        }
+        public void SetYellowWeapon()
+        {
+            var Gun = Weapons.Where(x => x.name == Constants.Tag.YellowWeapon).FirstOrDefault();
+            if (Gun != null)
+                SetWeaponAndSound(Gun);
+        }
+        public void SetBlueWeapon()
+        {
+            var Gun = Weapons.Where(x => x.name == Constants.Tag.BlueWeapon).FirstOrDefault();
+            if (Gun != null)
+                SetWeaponAndSound(Gun);
+        }
+        public void SetGreenWeapon()
+        {
+            var Gun = Weapons.Where(x => x.name == Constants.Tag.GreenWeapon).FirstOrDefault();
+            if (Gun != null)
+                SetWeaponAndSound(Gun);
+        }
+        public void SetBlackWeapon()
+        {
+            var Gun = Weapons.Where(x => x.name == Constants.Tag.BlackWeapon).FirstOrDefault();
+            if (Gun != null)
+                SetWeaponAndSound(Gun);
+        }
+
     }
 }
