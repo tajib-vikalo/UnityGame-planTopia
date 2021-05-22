@@ -13,9 +13,9 @@ Pomozi John-u da spasi biljke na svojoj planeti. Izbjegavaj zamke, onesposobljav
 
 -	Kretanje glavnog lika uz implementaciju animacija za kretanja(trčanje, hodanje..) :::::DONE:::::
 -	Sposobnost pucanja iz oružja :::::DONE:::::
--	Sposobnost punjenja različitih vrsta oružja uz primjenu odgovarajućih animacija
--	Regulisanje zdravlja glavnog igrača koje podrazumjeva uticaj raznih faktora koji utiču na zdravlje, poput, neprijatelja, vremena…
--	PowerUps za oružja, te uticaj na vrstu kretanja  koje glavni igrač ima
+-	Sposobnost punjenja različitih vrsta oružja uz primjenu odgovarajućih animacija :::::DONE:::::
+-	Regulisanje zdravlja glavnog igrača koje podrazumjeva uticaj raznih faktora koji utiču na zdravlje, poput, neprijatelja, vremena… :::::DONE:::::
+-	PowerUps za oružja :::::DONE:::::
 -	Dizajn levela 3. i 4 (In progress)
 
 #Additional:
