@@ -1,3 +1,4 @@
+using planTopia.Controllers.Player;
 using UnityEngine;
 
 namespace planTopia.Enemies
@@ -18,22 +19,29 @@ namespace planTopia.Enemies
 
         public void MoveAndRotate()
         {
-            Vector3 direction = Player.position-this.transform.position;
+            if (Player.GetComponent<PlayerHealth>().isDeath)
+                return;
+            Vector3 direction = Player.position - this.transform.position;
+            if (Vector3.Distance(this.transform.position, Player.position) > 0.7)
+            {
+                direction.Normalize();
+                Vector3 movement = direction;
+                Rigidbody.MovePosition(this.transform.position + (movement * Time.deltaTime * speed.speed));
+            }
             float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            direction.Normalize();
-            Vector3 movement = direction;
             Rigidbody.MoveRotation(Quaternion.Euler(0f, angle, 0f));
-            Rigidbody.MovePosition(this.transform.position + (movement * Time.deltaTime*speed.speed));
+
+            
            
 
         }
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag(Constants.Tag.PLAYER))
-            {
-                Player.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(this.GetComponent<Enabled>().Damage.AmountOfDamage);
-            }
-        }
+        //private void OnCollisionEnter(Collision collision)
+        //{
+        //    if (collision.gameObject.CompareTag(Constants.Tag.PLAYER))
+        //    {
+        //        Player.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(this.GetComponent<Enabled>().Damage.AmountOfDamage);
+        //    }
+        //}
        
     }
 }

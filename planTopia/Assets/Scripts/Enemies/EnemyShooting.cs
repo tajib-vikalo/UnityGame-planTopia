@@ -36,7 +36,7 @@ namespace planTopia.Enemies
 
         public void OnStartFiring()
         {
-            if (Time.time > NextRate)
+            if (Time.time > NextRate && !Player.GetComponent<PlayerHealth>().isDeath)
             {
                 NextRate = Time.time + shootingAttributes.FireRate;
                 Transform ShootingPoint = this.transform.Find("gunpoint");
@@ -57,7 +57,10 @@ namespace planTopia.Enemies
                     }
                 }
             }
-          
+            if (Player.GetComponent<PlayerHealth>().isDeath)
+                ParticleSystemStart.Stop();
+
+
         }
     }
 }

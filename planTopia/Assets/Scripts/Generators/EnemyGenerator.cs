@@ -17,7 +17,7 @@ namespace planTopia.Generators
         [SerializeField]
         private PositionGenerator PositionGenerator;
         [SerializeField]
-        private Generator EnemiesPool;
+        private Generator EnemyPool;
         [SerializeField]
         private GameObject Fence;
 
@@ -32,20 +32,20 @@ namespace planTopia.Generators
         {
             particle.Stop();
            
-            counter = EnemiesPool.Size;
+            counter = EnemyPool.Size;
 
 
         }
         //generate enemies in wanted amount
         private void FixedUpdate()
         {
-            if (started && counter > 0)
+            if (started && counter > 0 && !EnemyPool.CheckActivity())
             {
                 if (Time.time > NextEnemy)
                 {
 
                     NextEnemy = Time.time + speed.speed;
-                    GameObject enemy = EnemiesPool.Next(
+                    GameObject enemy = EnemyPool.Next(
                         Random.Range(-PositionGenerator.range.x, PositionGenerator.range.x), PositionGenerator.range.y,
                         Random.Range(-PositionGenerator.range.z, PositionGenerator.range.z),
                             PositionGenerator.origin);
@@ -60,7 +60,7 @@ namespace planTopia.Generators
                     }
                 }
             }
-            if (counter == 0)
+            if (counter == 0 && EnemyPool.CheckActivity())
                 Fence.SetActive(false);
             particle.Stop();
         }
@@ -70,7 +70,7 @@ namespace planTopia.Generators
         {
             if (collider.gameObject.CompareTag(Constants.Tag.PLAYER))
             {
-                //Fence.SetActive(enabled);
+                Fence.SetActive(enabled);
                 started = true;
             }
         }

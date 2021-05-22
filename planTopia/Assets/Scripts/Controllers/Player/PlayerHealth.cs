@@ -28,7 +28,7 @@ namespace planTopia.Controllers.Player
         private PlayerAnimationController Animator { get; set; }
         private PlayerController Controller { get; set; }
         private float NextDecreaseHealth;
-        private bool isDeath=false;
+        public bool isDeath=false;
 
 
         private void Start()

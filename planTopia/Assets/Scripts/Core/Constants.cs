@@ -23,11 +23,15 @@ namespace planTopia
             public const string YellowGun = "YellowGun";
             public const string GreenGun = "GreenGun";
             public const string BlackGun = "BlackGun";
-            //::::::::::::AnimationsTags:::::::::::://
+            //::::::::::::AnimationsTagsPlayer:::::::::::://
             public const string IDLE = "IDLE";
             public const string Running = "Running";
             public const string Jump = "Jump";
             public const string Death = "Dying";
+            //::::::::::::AnimationsTagsEnemy:::::::::::://
+            public const string Dizzy = "Dizzy";
+            public const string Die = "Die";
+
 
         }
     }

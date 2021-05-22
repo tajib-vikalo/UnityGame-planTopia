@@ -42,13 +42,13 @@ namespace planTopia.Controllers.Player
 
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-                    if (hitInfo.collider.gameObject.tag == "Enemy")
+                    if (hitInfo.collider.gameObject.tag == Constants.Tag.Enemy)
                     {
                         Object = hitInfo.collider.gameObject;
-                        var BaseGenericsEnemy = Object.GetComponent<BaseGenerics>();
+                        var BaseGenericsEnemy = Object.GetComponent<BaseBehaviour>();
                         if (Vector3.Distance(Object.transform.position, this.transform.position) < shootingAttributes.ShootingDistance)
                         {
-                            if (!Object.GetComponent<Animator>().GetBool("Dizzy"))
+                            if (!Object.GetComponent<Animator>().GetBool(Constants.Tag.Dizzy))
                             {
                                 hitInfo.collider.gameObject.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(shootingAttributes.Damage);
                                 BaseGenericsEnemy.startMove = false;

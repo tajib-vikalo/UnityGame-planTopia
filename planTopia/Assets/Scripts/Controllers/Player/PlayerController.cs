@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace planTopia
 {
-    public class PlayerController : BaseGenerics
+    public class PlayerController : BaseBehaviour
     {
         [SerializeField] private InputManagment InputManagment;
         [SerializeField] private Transform Camera;

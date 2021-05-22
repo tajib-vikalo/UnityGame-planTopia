@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace planTopia.Generators.Core
@@ -21,6 +22,7 @@ namespace planTopia.Generators.Core
         private GameObject CurrentItem;
         private int CurrentPosition = -1;
         private System.Random RandomGen;
+        private int counter = 0;
 
         private void Start()
         {
@@ -79,6 +81,17 @@ namespace planTopia.Generators.Core
 
         }
         //Setting a position of player
+        public bool CheckActivity()
+        {
+            if (counter == 0)
+            {
+                counter++;
+                return false;
+               
+            }
+            
+            return lst.Where(x => x.activeInHierarchy == true).ToList().Count ==0;
+        }
         public void SpecifiedPosition(ref GameObject currentItem, float x, float y, float z, Vector3 origin = default(Vector3))
         {
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace planTopia.Boss
 {
-    public class Attack : BaseGenerics
+    public class Attack : BaseBehaviour
     {
         
         public void ActivateAttack(Animator animator)

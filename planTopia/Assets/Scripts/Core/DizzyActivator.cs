@@ -36,7 +36,7 @@ namespace planTopia.Core
             Animator.SetBool("Dizzy", false);
 
             Damage.AmountOfDamage = 1;
-            this.GetComponent<BaseGenerics>().startMove = true;
+            this.GetComponent<BaseBehaviour>().startMove = true;
           
             
         }

@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 6134398106245470431}
   Damage: {fileID: 11400000, guid: 176f86a40f7ae514bb2144b9b97d16e5, type: 2}
+--- !u!114 &7809739260845791449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542107329174380043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e32b209a570af44fba69df305465253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &596252485077690540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,5 +123,10 @@ GameObject:
 --- !u!95 &6134398106245470431 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6730509703474376819, guid: d2176c22953a0114b81b82603a618e0b, type: 3}
+  m_PrefabInstance: {fileID: 596252485077690540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8542107329174380043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9137233145539393191, guid: d2176c22953a0114b81b82603a618e0b, type: 3}
   m_PrefabInstance: {fileID: 596252485077690540}
   m_PrefabAsset: {fileID: 0}

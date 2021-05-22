@@ -40,27 +40,27 @@ namespace planTopia.Enemies
             {
 
 
-                this.gameObject.GetComponent<BaseGenerics>().startMove = false;
-                if (this.gameObject.GetComponent<Enabled>() != null)
+                this.gameObject.GetComponent<BaseBehaviour>().startMove = false;
+                if (this.gameObject.GetComponent<EnemyBehaviour>() != null)
                 {
-                    this.gameObject.GetComponent<Enabled>().Damage.AmountOfDamage = this.gameObject.GetComponent<Enabled>().Damage.StartingDamage;
+                    this.gameObject.GetComponent<EnemyBehaviour>().Damage.AmountOfDamage = this.gameObject.GetComponent<EnemyBehaviour>().Damage.StartingDamage;
                 
                 }
-                Animator.SetBool("Die", true);
+                Animator.SetBool(Constants.Tag.Die, true);
 
-                Invoke("ObjectDisable", 2);
+                Invoke(nameof(ObjectDisable), 2);
             }
         }
         private void ObjectDisable()
         {
 
-            Animator.SetBool("Die", false);
+            Animator.SetBool(Constants.Tag.Die, false);
 
             this.gameObject.SetActive(false);
 
-            if (this.gameObject.GetComponent<Enabled>() != null)
+            if (this.gameObject.GetComponent<EnemyBehaviour>() != null)
             {
-                this.gameObject.GetComponent<Enabled>().Damage.AmountOfDamage = 1;
+                this.gameObject.GetComponent<EnemyBehaviour>().Damage.AmountOfDamage = 1;
             
             }
         }
