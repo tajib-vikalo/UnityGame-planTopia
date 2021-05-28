@@ -2,7 +2,6 @@ using planTopia.Controllers.Core;
 using planTopia.Core;
 using planTopia.Enemies;
 using planTopia.ScriptabileObjects;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,12 +47,11 @@ namespace planTopia.Controllers.Player
                         var BaseGenericsEnemy = Object.GetComponent<BaseBehaviour>();
                         if (Vector3.Distance(Object.transform.position, this.transform.position) < shootingAttributes.ShootingDistance)
                         {
-                            if (!Object.GetComponent<Animator>().GetBool(Constants.Tag.Dizzy))
-                            {
+                          
                                 hitInfo.collider.gameObject.GetComponent<EnemyHealthRegulator>()?.DecreaseHealth(shootingAttributes.Damage);
                                 BaseGenericsEnemy.startMove = false;
                                 Object.GetComponent<DizzyActivator>().StartDizzy();
-                            }
+                            
                         }
                     }
                     Audio.Play();

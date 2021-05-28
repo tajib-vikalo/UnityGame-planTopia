@@ -19,18 +19,14 @@ namespace planTopia.Enemies
 
         private float NextRate { get; set; }
         public Transform Player { get; set; }
-        private AudioSource Audio { get; set; }
+        [SerializeField]
+        private AudioSource Audio;
 
 
         private Ray ray;
         private RaycastHit hitInfo;
        
    
-
-        private void Start()
-        {
-            Audio = this.GetComponent<AudioSource>();
-        }
 
 
 

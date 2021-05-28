@@ -11,7 +11,7 @@ namespace planTopia.ScriptabileObjects
         public float Damage = 2;
         [Range(0f, 10f)]
         public float ShootingDistance = 0.75f;
-        [Range(0.1f, 1.5f)]
+        [Range(0.1f, 5f)]
         public float FireRate = 0.6f;
         [Range(10f, 100f)]
         public int MaxAmmunation = 50;

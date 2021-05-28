@@ -14,7 +14,8 @@ namespace planTopia
 
         [SerializeField]
         private ParticleSystem particle;
-        private AudioSource AudioSource { get; set; }
+        [SerializeField]
+        private AudioSource AudioSource;
 
         private void Start()
         {

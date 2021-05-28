@@ -49,7 +49,7 @@ namespace planTopia.Controllers.Player
             if (CurrentHealth >= 0)
                 HealthText.text = CurrentHealth.ToString() + "%";
             else HealthText.text = "0%";
-            Debug.Log(CurrentHealth);
+           
         }
 
         private void OnTriggerEnter(Collider other)

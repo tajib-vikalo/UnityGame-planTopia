@@ -5461,6 +5461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 7658447191983434004}
   Health: {fileID: 11400000, guid: af7ab2dd8c9744041914e9b2745a5d1d, type: 2}
+  Audio: {fileID: 0}
 --- !u!1001 &7658447192262002273
 PrefabInstance:
   m_ObjectHideFlags: 0

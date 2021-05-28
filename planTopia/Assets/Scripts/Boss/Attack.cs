@@ -11,12 +11,17 @@ namespace planTopia.Boss
 
             animator.SetBool("Attack", true);
             animator.SetBool("Run", false);
+           
+          
 
         }
+     
+      
         public void DeactivateAttack(Animator animator)
         {
             animator.SetBool("Run", true);
             animator.SetBool("Attack", false);
+          
         }
       
 

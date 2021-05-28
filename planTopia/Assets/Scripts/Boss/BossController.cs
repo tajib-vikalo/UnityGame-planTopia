@@ -12,6 +12,8 @@ namespace planTopia.Boss
         private float MovingDistance = 0.45f;
         private Animator Animator { get; set; }
         private NavMeshAgent Agent { get; set; }
+        [SerializeField]
+        private AudioSource AudioSource;
      
        
 
@@ -19,6 +21,7 @@ namespace planTopia.Boss
         {
             Agent = this.GetComponent<NavMeshAgent>();
             Animator = this.GetComponent<Animator>();
+           
 
         }
         private void Update()
@@ -35,12 +38,15 @@ namespace planTopia.Boss
             {
                 Agent.isStopped = true;
                 ActivateAttack(Animator);
+                if(!AudioSource.isPlaying)
+                    AudioSource.Play();
 
             }
             else
             {
                 Agent.isStopped = false;
                 DeactivateAttack(Animator);
+                AudioSource.Stop();
                 Agent.SetDestination(Target.transform.position);
             }
         }
