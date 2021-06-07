@@ -7,6 +7,8 @@ namespace planTopia.Enviroment
 {
     public class GunTrigger : MonoBehaviour
     {
+        [SerializeField]
+        private AudioSource GunLoadingAudio;
         private Weapon Weapons { get; set; }
         private void Start()
         {
@@ -35,6 +37,7 @@ namespace planTopia.Enviroment
                 default: Debug.Log("Weapon is not found!");
                     break;
             }
+            GunLoadingAudio.Play();
         }
     }
 }

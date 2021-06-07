@@ -24,6 +24,10 @@ namespace planTopia.Controllers.Player
         private Text HealthText;
         [SerializeField]
         private Vector3 StartPosition = new Vector3(-6.5f, 0, -39);
+        [SerializeField]
+        private AudioSource DeathSound;
+        [SerializeField]
+        private AudioSource DecreaseHealthSound;
 
         private PlayerAnimationController Animator { get; set; }
         private PlayerController Controller { get; set; }
@@ -77,6 +81,7 @@ namespace planTopia.Controllers.Player
             CurrentHealth -= damage;
             HealthSlider.value = CurrentHealth;
             CheckDeath();
+            DecreaseHealthSound.Play();
         }
 
         private void CheckDeath()
@@ -86,6 +91,7 @@ namespace planTopia.Controllers.Player
                 Controller.startMove = false;
                 isDeath = true;
                 Animator.SetTriggerDeath();
+                DeathSound.Play();
                 Invoke(nameof(RespawnPlayer), 3.5f);
             }
         }
