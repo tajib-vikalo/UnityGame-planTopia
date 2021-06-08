@@ -47,7 +47,6 @@ namespace planTopia.Controllers.Player
                     ray.origin = RaycastOrigin.position;
                     ray.direction = RaycastDestination.position - RaycastOrigin.position;
                     ParticleShoot.Play();
-                    Invoke(nameof(ParticleStop),0.15f);
 
                     if (Physics.Raycast(ray, out hitInfo))
                     {
@@ -71,12 +70,6 @@ namespace planTopia.Controllers.Player
             }
 
         }
-
-        private void ParticleStop()
-        {
-            ParticleShoot.Stop();
-        }
-
         private void DecreaseAmmunation()
         {
             shootingAttributes.CurrentAmmunation -= 1;

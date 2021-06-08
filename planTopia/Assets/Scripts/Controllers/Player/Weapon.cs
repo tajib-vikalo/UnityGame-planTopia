@@ -11,6 +11,8 @@ namespace planTopia.Controllers.Player
         [SerializeField]
         private List<ShootingAttributes> Weapons;
         [SerializeField]
+        private AudioSource GunLoadingAudio;
+        [SerializeField]
         private Image UIGunImage;
         [SerializeField]
         private Text UIAmmunation;
@@ -22,7 +24,7 @@ namespace planTopia.Controllers.Player
         {
             Renderer = this.GetComponentInChildren<SkinnedMeshRenderer>();
             Audio = this.GetComponent<AudioSource>();
-            SetBlackWeapon();
+            SetGreenWeapon();
         }
         private void SetWeaponAndSound(ShootingAttributes Gun)
         {
@@ -32,6 +34,7 @@ namespace planTopia.Controllers.Player
             Gun.CurrentAmmunation = Gun.MaxAmmunation;
             UIAmmunation.text= $"{Gun.CurrentAmmunation}/{Gun.MaxAmmunation}";
             this.GetComponent<ShootingWeapon>().SetShootingAttributes(Gun);
+            GunLoadingAudio.Play();
         }
         public void SetRedWeapon()
         {

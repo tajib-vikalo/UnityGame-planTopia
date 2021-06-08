@@ -31,6 +31,7 @@ namespace planTopia.Controllers.Player
 
         private PlayerAnimationController Animator { get; set; }
         private PlayerController Controller { get; set; }
+        private Weapon Weapons { get; set; }
         private float NextDecreaseHealth;
         public bool isDeath=false;
 
@@ -39,6 +40,7 @@ namespace planTopia.Controllers.Player
         {
             Animator = this.GetComponent<PlayerAnimationController>();
             Controller = this.GetComponent<PlayerController>();
+            Weapons = this.GetComponent<Weapon>();
             HealthText.text = CurrentHealth.ToString() + "%";
         }
         private void OnEnable()
@@ -106,6 +108,7 @@ namespace planTopia.Controllers.Player
             Animator.SetTriggerIDLE();
             Controller.startMove = true;
             isDeath = false;
+            Weapons.SetGreenWeapon();
         }
 
     }
