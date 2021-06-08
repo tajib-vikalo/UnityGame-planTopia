@@ -23,7 +23,9 @@ namespace planTopia.Generators
 
 
         private int counter { get; set; } = 0;
-       
+        private int NumberOfEntries { get; set; } = 0;
+
+
         private bool started { get; set; } = false;
         private float NextEnemy { get; set; } = 0;
 
@@ -39,7 +41,7 @@ namespace planTopia.Generators
         //generate enemies in wanted amount
         private void FixedUpdate()
         {
-            if (started && counter > 0 && !EnemyPool.CheckActivity())
+            if (started && counter > 0  /*&&!EnemyPool.CheckActivity()*/)
             {
                 if (Time.time > NextEnemy)
                 {
@@ -70,8 +72,12 @@ namespace planTopia.Generators
         {
             if (collider.gameObject.CompareTag(Constants.Tag.PLAYER))
             {
-                Fence.SetActive(enabled);
-                started = true;
+               
+                    Fence.SetActive(enabled);
+                    started = true;
+                  
+                    
+
             }
         }
 
