@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +21,8 @@ namespace planTopia.Controllers.Player
         private Slider HealthSlider;
         [SerializeField]
         private Text HealthText;
-        [SerializeField]
-        private Vector3 StartPosition = new Vector3(-6.5f, 0, -39);
+
+
         [SerializeField]
         private AudioSource DeathSound;
         [SerializeField]
@@ -32,9 +31,10 @@ namespace planTopia.Controllers.Player
         private PlayerAnimationController Animator { get; set; }
         private PlayerController Controller { get; set; }
         private Weapon Weapons { get; set; }
+        public Transform StartPosition;
+     
         private float NextDecreaseHealth;
         public bool isDeath=false;
-
 
         private void Start()
         {
@@ -42,6 +42,7 @@ namespace planTopia.Controllers.Player
             Controller = this.GetComponent<PlayerController>();
             Weapons = this.GetComponent<Weapon>();
             HealthText.text = CurrentHealth.ToString() + "%";
+          
         }
         private void OnEnable()
         {
@@ -55,7 +56,6 @@ namespace planTopia.Controllers.Player
             if (CurrentHealth >= 0)
                 HealthText.text = CurrentHealth.ToString() + "%";
             else HealthText.text = "0%";
-           
         }
 
         private void OnTriggerEnter(Collider other)
@@ -100,16 +100,32 @@ namespace planTopia.Controllers.Player
 
         private void RespawnPlayer()
         {
-            this.transform.position = StartPosition;
-            this.transform.rotation = Quaternion.Euler(Vector3.zero);
+            SetPosition();
+            SetDefaultSettings();
+        }
+
+        public void SwitchLevel(Transform newLevel)
+        {
+            StartPosition = newLevel;
+            SetPosition();
+            SetDefaultSettings();
+        }
+
+        private void SetPosition()
+        {
+            this.transform.position = StartPosition.position;
+            this.transform.rotation = StartPosition.rotation;
+        }
+
+        private void SetDefaultSettings()
+        {
             CurrentHealth = MaxHealth;
             HealthSlider.value = MaxHealth;
-            HealthText.text = MaxHealth.ToString()+"%";
+            HealthText.text = MaxHealth.ToString() + "%";
             Animator.SetTriggerIDLE();
             Controller.startMove = true;
             isDeath = false;
             Weapons.SetGreenWeapon();
         }
-
     }
 }

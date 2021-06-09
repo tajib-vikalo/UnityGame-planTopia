@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace planTopia.Controllers.Core
 {
@@ -31,6 +32,12 @@ namespace planTopia.Controllers.Core
 
             if (Input.GetKeyDown(KeyCode.Space))
                 OnJump?.Invoke();
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(0);
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }

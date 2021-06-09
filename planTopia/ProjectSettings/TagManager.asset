@@ -17,6 +17,10 @@ TagManager:
   - Fence
   - CollidePlane
   - FinishedEnemy
+  - Level1End
+  - Level2End
+  - Level3End
+  - Level4End
   layers:
   - Default
   - TransparentFX

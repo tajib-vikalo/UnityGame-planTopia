@@ -31,6 +31,11 @@ namespace planTopia
             //::::::::::::AnimationsTagsEnemy:::::::::::://
             public const string Dizzy = "Dizzy";
             public const string Die = "Die";
+            //::::::::::::LevelsEndTags:::::::::::://
+            public const string Level1End = "Level1End";
+            public const string Level2End = "Level2End";
+            public const string Level3End = "Level3End";
+            public const string Level4End = "Level4End";
 
 
         }

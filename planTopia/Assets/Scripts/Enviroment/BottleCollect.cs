@@ -9,19 +9,21 @@ namespace planTopia
     {
         [SerializeField]
         private AudioSource CollectSound;
+        [SerializeField]
+        private GameObject Message;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(Constants.Tag.PLAYER))
             {
                 CollectSound.Play();
                 Invoke(nameof(SetDisable), 0.5f);
-               
+                Invoke(nameof(MessageForTheEnd), 2f);
+
             }
         }
 
-        private void SetDisable()
-        {
-            this.gameObject.SetActive(false);
-        }
+        private void SetDisable() => this.gameObject.SetActive(false);
+
+        private void MessageForTheEnd() => Message.SetActive(true);
     }
 }
