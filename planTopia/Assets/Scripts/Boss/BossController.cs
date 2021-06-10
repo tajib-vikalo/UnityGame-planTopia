@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,7 @@ namespace planTopia.Boss
     {
         [SerializeField]
         private GameObject Target;
+        [SerializeField]
         [Range(0, 20)]
         private float MovingDistance = 0.45f;
         private Animator Animator { get; set; }
@@ -39,7 +41,7 @@ namespace planTopia.Boss
                 Agent.isStopped = true;
                 ActivateAttack(Animator);
                 if(!AudioSource.isPlaying)
-                    AudioSource.Play();
+                   Invoke( nameof(PlayAudio),0.5f);
 
             }
             else
@@ -50,5 +52,11 @@ namespace planTopia.Boss
                 Agent.SetDestination(Target.transform.position);
             }
         }
+
+        private void PlayAudio()
+        {
+            AudioSource.Play();
+                
+         }
     }
 }

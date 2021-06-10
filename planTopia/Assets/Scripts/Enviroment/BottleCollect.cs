@@ -11,6 +11,11 @@ namespace planTopia
         private AudioSource CollectSound;
         [SerializeField]
         private GameObject Message;
+        [SerializeField]
+        private AudioSource EndGame;
+        [SerializeField]
+        private AudioSource StartGame;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(Constants.Tag.PLAYER))
@@ -24,6 +29,11 @@ namespace planTopia
 
         private void SetDisable() => this.gameObject.SetActive(false);
 
-        private void MessageForTheEnd() => Message.SetActive(true);
+        private void MessageForTheEnd() { 
+            Message.SetActive(true);
+            StartGame.Stop();
+            EndGame.Play();
+        }
+
     }
 }

@@ -12,16 +12,25 @@ namespace planTopia
         private List<GameObject> Bosses;
         [SerializeField]
         private GameObject GameObject;
+        bool isVisited = false;
+        [SerializeField]
+        private AudioSource TensionSound;
+        [SerializeField]
+        private AudioSource StartSound;
+
+
 
         private int counter=0;
         
 
         void Update()
         {
-            if (BosseesDeactivated() && counter==0)
+            if (BosseesDeactivated() && !isVisited)
             {
                 GameObject.SetActive(!GameObject.activeInHierarchy);
-                counter++;
+                StartSound.Stop();
+                TensionSound.Play();
+                isVisited = true;
             }
        
         }

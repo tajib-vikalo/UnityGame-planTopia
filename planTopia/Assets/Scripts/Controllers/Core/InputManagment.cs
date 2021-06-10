@@ -11,6 +11,10 @@ namespace planTopia.Controllers.Core
         public Action<bool> ZoomCamera;
         public Action OnRotationCamera;
         public Action OnShooting;
+        [SerializeField]
+        private AudioSource StartSound;
+        [SerializeField]
+        private AudioSource VictorySound;
 
         private void FixedUpdate()
         {
@@ -37,6 +41,8 @@ namespace planTopia.Controllers.Core
             {
                 SceneManager.LoadScene(0);
                 Cursor.lockState = CursorLockMode.None;
+                VictorySound.Stop();
+                StartSound.Play();
             }
         }
     }

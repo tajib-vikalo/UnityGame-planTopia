@@ -7,7 +7,7 @@ namespace planTopia
     [CreateAssetMenu(menuName = "planTopia/Health", fileName = "Health", order = 0)]
     public class Health : ScriptableObject
     {
-        [Range(1f,50f)]
+        [Range(1f,1000f)]
         public float StartingHealt = 10;
   
     }
