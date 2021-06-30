@@ -8,12 +8,13 @@ namespace planTopia.Enviroment
     {
         [SerializeField]
         private GameObject player;
-
+       
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject == player)
             {
                 player.transform.parent = this.transform;
+                
             }
         }
 
