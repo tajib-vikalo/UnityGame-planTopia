@@ -11,10 +11,10 @@ namespace planTopia.Controllers.Player
         private float MaxHealth = 100;
         [SerializeField]
         [Range(1, 60)]
-        private float TimeOfDecreaseHealth=2;
+        private float TimeOfDecreaseHealth = 2;
         [SerializeField]
         [Range(0.1f, 10)]
-        private float DecrementHealth=1;
+        private float DecrementHealth = 1;
         private float CurrentHealth;
 
         [SerializeField]
@@ -32,9 +32,9 @@ namespace planTopia.Controllers.Player
         private PlayerController Controller { get; set; }
         private Weapon Weapons { get; set; }
         public Transform StartPosition;
-     
+
         private float NextDecreaseHealth;
-        public bool isDeath=false;
+        public bool isDeath = false;
 
         private void Start()
         {
@@ -42,12 +42,12 @@ namespace planTopia.Controllers.Player
             Controller = this.GetComponent<PlayerController>();
             Weapons = this.GetComponent<Weapon>();
             HealthText.text = CurrentHealth.ToString() + "%";
-          
+
         }
         private void OnEnable()
         {
             CurrentHealth = MaxHealth;
-            NextDecreaseHealth = Time.time+TimeOfDecreaseHealth;
+            NextDecreaseHealth = Time.time + TimeOfDecreaseHealth;
         }
 
         private void Update()
@@ -69,7 +69,7 @@ namespace planTopia.Controllers.Player
 
         private void DecreaseHealthOnTime()
         {
-            if (Time.time > NextDecreaseHealth&&!isDeath)
+            if (Time.time > NextDecreaseHealth && !isDeath)
             {
                 CurrentHealth -= DecrementHealth;
                 HealthSlider.value = CurrentHealth;
@@ -104,11 +104,14 @@ namespace planTopia.Controllers.Player
             SetDefaultSettings();
         }
 
-        public void SwitchLevel(Transform newLevel)
+        public void SwitchLevel(Transform newLevel, bool isDeath=true)
         {
             StartPosition = newLevel;
-            SetPosition();
-            SetDefaultSettings();
+            if (isDeath)
+            {
+                SetPosition();
+                SetDefaultSettings();
+            }
         }
 
         private void SetPosition()

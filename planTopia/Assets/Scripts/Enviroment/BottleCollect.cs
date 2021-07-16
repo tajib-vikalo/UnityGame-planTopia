@@ -15,6 +15,8 @@ namespace planTopia
         private AudioSource EndGame;
         [SerializeField]
         private AudioSource StartGame;
+        [SerializeField]
+        private GameObject Player;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -33,6 +35,7 @@ namespace planTopia
             Message.SetActive(true);
             StartGame.Stop();
             EndGame.Play();
+            Player.SetActive(false);
         }
 
     }
