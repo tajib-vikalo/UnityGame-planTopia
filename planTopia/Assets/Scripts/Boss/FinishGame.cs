@@ -17,6 +17,8 @@ namespace planTopia
         private AudioSource TensionSound;
         [SerializeField]
         private AudioSource StartSound;
+        [SerializeField]
+        private BossesEnabling bossesEnabling;
 
 
 
@@ -25,11 +27,11 @@ namespace planTopia
 
         void Update()
         {
-            if (BosseesDeactivated() && !isVisited)
+            if (BosseesDeactivated() && !isVisited && bossesEnabling.Activated)
             {
                 GameObject.SetActive(!GameObject.activeInHierarchy);
-                StartSound.Stop();
-                TensionSound.Play();
+                TensionSound.Stop();
+                StartSound.Play();
                 isVisited = true;
             }
        

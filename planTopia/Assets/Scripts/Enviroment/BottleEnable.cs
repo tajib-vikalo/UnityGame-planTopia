@@ -19,6 +19,9 @@ namespace planTopia
         private AudioSource VictorySound;
         [SerializeField]
         private AudioSource EndSound;
+        [SerializeField]
+        private BossesEnabling bossesEnabling;
+        private bool IsMainBossActivated = false;
         bool isVisited = false;
 
 
@@ -27,14 +30,15 @@ namespace planTopia
         void Update()
         {
            
-            if(BosseesDeactivated()&& !Boss.activeInHierarchy && counter==0 && !isVisited)
+            if(BosseesDeactivated()&& !Boss.activeInHierarchy && counter==0 && !isVisited && IsMainBossActivated && bossesEnabling.Activated)
             {
                 Bottle.SetActive(true);
                 EndSound.Stop();
                 VictorySound.Play();
                 isVisited = true;
             }
-          
+            if (Boss.activeInHierarchy)
+                IsMainBossActivated = true;
         
         }
 
