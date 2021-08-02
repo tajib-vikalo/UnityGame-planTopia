@@ -11,7 +11,7 @@ namespace planTopia.Enviroment
        
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == player)
+            if (other.gameObject.CompareTag(Constants.Tag.PLAYER))
             {
                 player.transform.parent = this.transform;
                 
@@ -20,7 +20,7 @@ namespace planTopia.Enviroment
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject == player)
+            if (other.gameObject.CompareTag(Constants.Tag.PLAYER))
             {
                 player.transform.parent = null;
             }

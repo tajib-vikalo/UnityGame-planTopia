@@ -20,6 +20,8 @@ namespace planTopia.Enemies
         private AudioSource Damage;
         [SerializeField]
         private AudioSource Die;
+        [SerializeField]
+        private GameObject CollectingGameObject;
 
 
 
@@ -70,7 +72,8 @@ namespace planTopia.Enemies
         {
 
             Animator.SetBool(Constants.Tag.Die, false);
-
+            if (CollectingGameObject != null)
+                CollectingGameObject.SetActive(true);
             this.gameObject.SetActive(false);
 
             if (this.gameObject.GetComponent<EnemyBehaviour>() != null)

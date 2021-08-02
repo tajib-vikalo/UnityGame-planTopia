@@ -17,12 +17,12 @@ namespace planTopia.Controllers.Player
         [SerializeField]
         [Range(0.1f, 10)]
         private float DecrementHealth = 1;
-        private float CurrentHealth;
+        public float CurrentHealth;
 
-        [SerializeField]
-        private Slider HealthSlider;
-        [SerializeField]
-        private Text HealthText;
+        
+        public Slider HealthSlider;
+        
+        public Text HealthText;
 
         [SerializeField]
         private AudioSource BackgroundSound;
@@ -32,8 +32,8 @@ namespace planTopia.Controllers.Player
         private AudioSource DecreaseHealthSound;
         [SerializeField]
         private AudioSource GameOverSound;
-        [SerializeField]
-        private List<Image> Hearts;
+        
+        public List<Image> Hearts;
 
         [SerializeField]
         private Transform GameOver;
@@ -46,7 +46,7 @@ namespace planTopia.Controllers.Player
 
         private float NextDecreaseHealth;
         public bool isDeath = false;
-        private int CountOfLifes;
+        public int CountOfLifes;
 
         private void Start()
         {
