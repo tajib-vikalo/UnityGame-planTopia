@@ -11,7 +11,7 @@ namespace planTopia.Controllers.Player
     public class ShootingWeapon : MonoBehaviour
     {
         [SerializeField]
-        private AudioSource EmptyGunSound;
+        private SFX EmptyGunSound;
         [SerializeField]
         private InputManagment InputManagment;
         [SerializeField]
@@ -23,8 +23,9 @@ namespace planTopia.Controllers.Player
         [SerializeField]
         private ParticleSystem ParticleShoot;
         private ShootingAttributes shootingAttributes { get; set; }
+        private SFX CurrentGunSound { get; set; }
         private GameObject Object { get; set; }
-        private AudioSource Audio { get; set; }
+        private AudioManager AudioManager { get; set; }
 
         private float NextRate;
         private Ray ray;
@@ -33,7 +34,7 @@ namespace planTopia.Controllers.Player
         private void Start()
         {
             InputManagment.OnShooting += OnStartFiring;
-            Audio = this.GetComponent<AudioSource>();
+            AudioManager = this.GetComponent<AudioManager>();
         }
 
         private void OnStartFiring()
@@ -47,6 +48,8 @@ namespace planTopia.Controllers.Player
                     ray.origin = RaycastOrigin.position;
                     ray.direction = RaycastDestination.position - RaycastOrigin.position;
                     ParticleShoot.Play();
+                    AudioManager.Play(CurrentGunSound);
+                        DecreaseAmmunation();
 
                     if (Physics.Raycast(ray, out hitInfo))
                     {
@@ -61,12 +64,10 @@ namespace planTopia.Controllers.Player
                                 Object.GetComponent<DizzyActivator>().StartDizzy();
                             }
                         }
-                        Audio.Play();
-                        DecreaseAmmunation();
                         Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 4f);
                     }
                 }
-                else EmptyGunSound.Play();
+                else AudioManager.Play(EmptyGunSound);
             }
 
         }
@@ -75,6 +76,10 @@ namespace planTopia.Controllers.Player
             shootingAttributes.CurrentAmmunation -= 1;
             UIAmmunationText.text = $"{shootingAttributes.CurrentAmmunation.ToString()}/{shootingAttributes.MaxAmmunation.ToString()}";
         }
-        public void SetShootingAttributes(ShootingAttributes Gun) => shootingAttributes = Gun;
+        public void SetShootingAttributes(ShootingAttributes Gun)
+        {
+            shootingAttributes = Gun;
+            CurrentGunSound = Gun.GunSound;
+        }
     }
 }

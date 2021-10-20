@@ -18,6 +18,7 @@ namespace planTopia.ScriptabileObjects
         public int CurrentAmmunation;
         public Material Weapon;
         public AudioClip Sound;
+        public SFX GunSound;
         public Sprite UIImage;
     }
 }
